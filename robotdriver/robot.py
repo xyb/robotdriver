@@ -80,10 +80,10 @@ def robot(ctxt, file_=None):
 
     for case in RobotFrameworkReportParser(ctxt.resolve(file_)).parse():
         status, source, suite_name, message = case
-        testcase = xmlio.Element('robot', status=status,
-                               source=source,
-                               suite_name=suite_name,
-                               message=message)
+        testcase = xmlio.Element('robot', status=status.encode('utf-8'),
+                               source=source.encode('utf-8'),
+                               suite_name=suite_name.encode('utf-8'),
+                               message=message.encode('utf-8'))
         results.append(testcase)
     ctxt.report('robot', results)
 
