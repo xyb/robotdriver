@@ -1,39 +1,63 @@
-RobotDriver is a Trac__ plugin that adds RobotFramework__ support
-to Bitten__.
+Introduction
+============
 
-__ http://trac.edgewall.org
-__ http://code.google.com/p/robotframework
-__ http://bitten.edgewall.org
+RobotDriver is a `Trac`_ plugin that adds `RobotFramework`_ support
+to `Bitten`_.
 
-Example:
+.. _`Trac`: http://trac.edgewall.org
+.. _`Bitten`: http://bitten.edgewall.org
+.. _`RobotFramework`: http://code.google.com/p/robotframework
 
-An example build recipe might like this:
+Installation
+============
 
-<build xmlns:svn="http://bitten.cmlenz.net/tools/svn"
-      xmlns:sh="http://bitten.cmlenz.net/tools/sh"
-      xmlns:robotdriver="http://bitbucket.org/xyb/robotdriver">
+Installation is done just as for any other Trac plugin. Using the pip or
+easy_install command from setuptools is the easiest.
 
-    <step id="checkout" description="Checkout source">
-      <svn:checkout path="${path}" url="http://svn.douban.com/svn/robotdriver" revision="${revision}"/>
-    </step>
+To install using ``pip``::
 
-    <step id="robot" description="Gather robotframework report">
-      <sh:exec executable="pybot" args="-l NONE -r NONE -o output.xml data_sources"/>
-      <robotdriver:robot file="output.xml" />
-    </step>
+    pip install robotdriver
 
-</build>
+To install using ``easy_install``::
 
-Installation:
-
-Installation is done just as for any other Trac plugin.  Using the
-easy_install command from setuptools is the easiest (provided you have
-already setuptools installed):
-
-easy_install robotdriver
+    easy_install robotdriver
 
 After that you must configure your Trac project to use the plugin.  Edit
-conf/trac.ini in your Trac directory to include this:
+conf/trac.ini in your Trac directory to include this::
 
-[components]
-robotdriver.* = enabled
+    [components]
+    robotdriver.* = enabled
+
+If you have downloaded a source tarball you can install it
+by doing the following,::
+
+    $ python setup.py build
+    # python setup.py install # as root
+
+Example
+=======
+
+An example build recipe for Bitten might like this::
+
+    <build xmlns:svn="http://bitten.cmlenz.net/tools/svn"
+          xmlns:sh="http://bitten.cmlenz.net/tools/sh"
+          xmlns:robotdriver="http://bitbucket.org/xyb/robotdriver">
+
+        <step id="checkout" description="Checkout source">
+          <svn:checkout path="${path}" url="http://svn.douban.com/svn/robotdriver" revision="${revision}"/>
+        </step>
+
+        <step id="robot" description="Gather robotframework report">
+          <sh:exec executable="pybot" args="-l NONE -r NONE -o output.xml data_sources"/>
+          <robotdriver:robot file="output.xml" />
+        </step>
+
+    </build>
+
+License
+=======
+
+This software is licensed under the ``New BSD License``. See the ``LICENSE``
+file in the top distribution directory for the full license text.
+
+.. # vim: syntax=rst expandtab tabstop=4 shiftwidth=4 shiftround
