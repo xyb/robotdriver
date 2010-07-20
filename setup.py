@@ -1,20 +1,19 @@
 #!/usr/bin/env python
+
+import os
 from setuptools import setup, find_packages
+
+ROOT = os.path.abspath(os.path.dirname(__file__))
+README = open(os.path.join(ROOT, 'README.txt')).read()
 
 setup(
     name = 'RobotDriver',
-    version = '0.1',
-    description = 'RobotFramework suport for Bitten',
-    long_description = '''
-RobotDriver is a Trac__ plugin that adds RobotFramework__ support
-to Bitten__.
-
-__ http://trac.edgewall.org
-__ http://code.google.com/p/robotframework
-__ http://bitten.edgewall.org
-''',
+    version = '0.1.1',
+    description = 'RobotFramework support for Bitten',
+    long_description = README,
     author = 'Xie Yanbo',
     author_email = 'xieyanbo@gmail.com',
+    license = 'New BSD',
     packages = find_packages(),
     package_data = {
         'robotdriver': ['templates/*.html'],
@@ -32,12 +31,14 @@ __ http://bitten.edgewall.org
     url = 'http://bitbucket.org/xyb/robotdriver',
     keywords = 'trac,bitten,robotframework,pybot,test',
     install_requires = [
-        'trac==0.11.2',
+        'trac>=0.11, <0.12',
         'bitten>=0.6b2',
-        'robotframework>=2.5',
         ],
+    platforms = ['Linux', 'Unix', 'Windows', 'MacOS X'],
     classifiers = [
+        'Development Status :: 3 - Alpha',
         'Programming Language :: Python',
+        'Framework :: Trac',
         'Operating System :: OS Independent',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',

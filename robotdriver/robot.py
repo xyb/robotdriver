@@ -68,11 +68,11 @@ class RobotFrameworkReportParser:
             yield case
 
 def robot(ctxt, file_=None):
-    """Extract data from a ``pylint`` run written to a file.
+    """Extract data from a ``pybot`` report.
 
     :param ctxt: the build context
     :type ctxt: `Context`
-    :param file\_: name of the file containing the Pylint output
+    :param file\_: name of the file containing the pybot report
     """
     assert file_, 'Missing required attribute "file"'
 
