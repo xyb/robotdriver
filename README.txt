@@ -39,8 +39,8 @@ Example
 
 An example build recipe for Bitten might like this::
 
-    <build xmlns:svn="http://bitten.cmlenz.net/tools/svn"
-          xmlns:sh="http://bitten.cmlenz.net/tools/sh"
+    <build xmlns:svn="http://bitten.edgewall.org/tools/svn"
+          xmlns:sh="http://bitten.edgewall.org/tools//sh"
           xmlns:robotdriver="http://bitbucket.org/xyb/robotdriver">
 
         <step id="checkout" description="Checkout source">
@@ -48,7 +48,7 @@ An example build recipe for Bitten might like this::
         </step>
 
         <step id="robot" description="Gather robotframework report">
-          <sh:exec executable="pybot" args="-l NONE -r NONE -o output.xml data_sources"/>
+          <sh:exec executable="pybot" args="-C off -l NONE -r NONE -o output.xml data_sources"/>
           <robotdriver:robot file="output.xml" />
         </step>
 
