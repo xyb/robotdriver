@@ -8,7 +8,7 @@ README = open(os.path.join(ROOT, 'README.txt')).read()
 
 setup(
     name = 'RobotDriver',
-    version = '0.2',
+    version = '0.2.1',
     description = 'RobotFramework support for Bitten',
     long_description = README,
     author = 'Xie Yanbo',
