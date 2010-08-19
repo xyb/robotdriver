@@ -40,7 +40,7 @@ Example
 An example build recipe for Bitten might like this::
 
     <build xmlns:svn="http://bitten.edgewall.org/tools/svn"
-          xmlns:sh="http://bitten.edgewall.org/tools//sh"
+          xmlns:sh="http://bitten.edgewall.org/tools/sh"
           xmlns:robotdriver="http://bitbucket.org/xyb/robotdriver">
 
         <step id="checkout" description="Checkout source">
