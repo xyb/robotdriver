@@ -8,7 +8,7 @@ README = open(os.path.join(ROOT, 'README.txt')).read()
 
 setup(
     name = 'RobotDriver',
-    version = '0.2.2',
+    version = '0.2.3',
     description = 'RobotFramework support for Bitten',
     long_description = README,
     author = 'Xie Yanbo',
@@ -31,8 +31,8 @@ setup(
     url = 'http://bitbucket.org/xyb/robotdriver',
     keywords = 'trac,bitten,robotframework,pybot,test',
     install_requires = [
-        'trac>=0.11, <0.12',
-        'bitten>=0.6b2',
+        'trac>=0.12',
+        'bitten>=0.6b3',
         ],
     platforms = ['Linux', 'Unix', 'Windows', 'MacOS X'],
     classifiers = [
